@@ -4,7 +4,6 @@ import app from "../../src/app";
 import { generateNewSong } from "../factories/createSongBody";
 import { createSong } from "../factories/insertSong";
 import { clearDatabase, endConnection } from "../utils/database";
-import { string } from 'joi';
 
 beforeEach(async () => {
   await clearDatabase()

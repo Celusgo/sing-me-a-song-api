@@ -8,11 +8,11 @@ async function upVote (req: Request, res: Response) {
 
     const validate = idSchema.validate({ id });
 
-    if (validate.error) return res.status(400);
+    if (validate.error) return res.sendStatus(400);
 
     try {
         const findSong = await searchSongById(id);
-
+        
         if (!findSong) return res.sendStatus(400);
 
         await thumbsUp(id);
@@ -28,8 +28,8 @@ async function downVote (req:Request, res:Response) {
     const id:number = Number(req.params.id);
 
     const validate = idSchema.validate({id});
-
-    if(validate.error) return res.status(400);
+    
+    if(validate.error) return res.sendStatus(400);
 
     try {
         const findSong = await searchSongById(id);
