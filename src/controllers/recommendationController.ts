@@ -28,6 +28,7 @@ async function randomSong (req:Request, res:Response) {
     try{
         const random = await giveRandomSong()
         if(!random) return res.sendStatus(404);
+        console.log(random);
         res.status(200).send(random);
     }
     catch (err){

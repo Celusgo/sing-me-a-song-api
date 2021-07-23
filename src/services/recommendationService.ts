@@ -2,8 +2,12 @@ import { songsList } from '../repositories/recommendationRepository';
 
 async function giveRandomSong() {
 
+    function refference() { 
+        return Math.random() - 0.5; 
+    };
+
     const list = await songsList();
-    
+ 
     let filteredList:string[];
 
     if (list.length === 0) return null;
@@ -15,10 +19,10 @@ async function giveRandomSong() {
     else {
         filteredList = list.filter(item => item.score <= 10);
     }
+    
+    if(filteredList.length === 0) return list.sort(refference)[0];
 
-    if(filteredList.length === 0) return list[Math.random() * (list.length - 1)];
-
-    return filteredList[Math.random() * (filteredList.length -1)];
+    return filteredList.sort(refference)[0];
 }
 
 export { giveRandomSong };
