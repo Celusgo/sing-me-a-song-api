@@ -12,4 +12,12 @@ export async function createSong() {
     const id:number = create.rows[0].id;
 
     return id;
-}
+};
+
+export async function updateValues(){
+
+    await connection.query(`UPDATE songs SET score = 5 WHERE id = 1`);
+    await connection.query(`UPDATE songs SET score = 15 WHERE id = 2`);
+    await connection.query(`UPDATE songs SET score = 10 WHERE id = 3`);
+
+};

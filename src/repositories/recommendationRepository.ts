@@ -23,7 +23,7 @@ async function searchSongById(id: number) {
     `, [id]);
 
     return request.rows[0];
-}
+};
 
 async function songsList(){
     const request = await connection.query(`
@@ -31,15 +31,16 @@ async function songsList(){
     `);
 
     return request.rows;
-}
+};
 
 async function higherScoreSongs(amount:Number) {
-    const request = await connection.query(`SELECT * FROM songs
+    const request = await connection.query(`
+    SELECT * FROM songs
     ORDER BY score 
     DESC LIMIT $1
     `, [amount]);
 
-    return request.rows
-}
+    return request.rows;
+};
 
 export { insertSong, searchForExistingSong, searchSongById, songsList, higherScoreSongs };

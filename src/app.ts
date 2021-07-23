@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { addNewSong, randomSong } from "./controllers/recommendationController";
+import { addNewSong, randomSong, topSongs } from "./controllers/recommendationController";
 import { upVote, downVote } from "./controllers/scoreController";
 
 const app = express();
@@ -11,5 +11,6 @@ app.post("/recommendations", addNewSong);
 app.post("/recommendations/:id/upvote", upVote);
 app.post("/recommendations/:id/downvote", downVote);
 app.get("/recommendations/random", randomSong);
+app.get("/recommendations/top/:amount", topSongs);
 
 export default app;
