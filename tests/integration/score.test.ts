@@ -118,6 +118,5 @@ describe("POST /recommendations/:id/downvote" ,() => {
         expect(create.rows[0].score).toEqual(0);
         expect(beforeDeletion.rows[0].score).toEqual(-5);
         expect(deleted.rows.length).toEqual(0);
-
     });
 });
