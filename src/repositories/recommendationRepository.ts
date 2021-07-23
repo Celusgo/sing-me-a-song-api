@@ -7,7 +7,7 @@ async function searchForExistingSong(name:string){
     WHERE name = $1
     `, [name]);
 
-    return request.rows;
+    return request.rows[0];
 }
 
 async function insertSong (name:string, youtubeLink:string) {

@@ -1,6 +1,8 @@
+import faker from 'faker';
+
 export function generateNewSong() {
     return {
-        name: "The Writing on the Wall",
-        youtubeLink: "https://www.youtube.com/watch?v=FhBnW7bZHEE"
+        name: faker.random.word(),
+        youtubeLink: faker.internet.url()
     }
 }
